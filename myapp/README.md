@@ -15,3 +15,14 @@
 ## 3. 변수를 사용하여 데이터를 저장하기
 
 - 변수를 사용하는 방법
+
+## 4. 프로젝트 컴파일 및 실행
+
+### 쉘 실행
+- /c/Users/bitcamp/git/bitcamp-study/java-lang/app
+
+### 컴파일
+- javac -d bin/main src/main/java/bitcamp/myapp/App.java -encoding UTF8
+
+### 빌드
+- java -cp bin/main bitcamp.myapp.App
