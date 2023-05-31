@@ -75,3 +75,18 @@
     - Primitive Data Type 소개: byte, short, int, long, char, float, double, boolean
 - 프로젝트 실습
   - 3. 변수를 사용하여 데이터를 저장하기
+
+### 6일(5/30,화)
+
+- 자바 프로그래밍
+  - 표준 입출력 API 사용법(com.eomcs.lang.ex99)
+  - 변수 사용법(com.eomcs.lang.ex04)
+  - 배열 사용법(com.eomcs.lang.ex04)
+- 프로젝트 실습
+  - 4. 키보드로 값을 입력 받기
+  - 5. 배열과 반복문을 이용하여 여러 개의 데이터를 입력 받기
+
+### 7일(5/31,수)
+
+- 자바 프로그래밍
+  - 연산자 사용법(com.eomcs.lang.ex05)
