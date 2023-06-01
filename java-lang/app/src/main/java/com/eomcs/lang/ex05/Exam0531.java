@@ -4,7 +4,7 @@ package com.eomcs.lang.ex05;
 //
 public class Exam0531 {
   public static void main(String[] args) {
-    int age = 20;
+    // int age = 20;
 
     // 조건 연산자의 결과 값이 왼편의 변수 타입과 일치해야 한다.
     // => 결과 값이 없으면 문법 오류!

@@ -10,6 +10,7 @@ public class Exam0210 {
     // 비교의 결과는 true 또는 false이다.
     // 즉 boolean 값이다.
     boolean r1 = a < b; // true
+    System.out.println(r1); // true
 
     //    int r2 = a < b; // 컴파일 오류!
 

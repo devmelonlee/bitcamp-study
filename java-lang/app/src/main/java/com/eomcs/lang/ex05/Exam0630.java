@@ -25,7 +25,7 @@ public class Exam0630 {
     // 3) 할당 연산자 실행
     //    => j <=== 7 실행
 
-    System.out.println(j);
-    System.out.println(i);
+    System.out.println(j); // 7
+    System.out.println(i); // 8
   }
 }

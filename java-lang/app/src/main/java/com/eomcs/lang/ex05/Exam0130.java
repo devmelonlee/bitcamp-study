@@ -23,8 +23,8 @@ public class Exam0130 {
     byte x = 5, y = 6, z;
     z = x; // OK!
     z = y; // OK!
-
-        z = x + y; // 컴파일 오류!
+    System.out.println(z);
+        // z = x + y; // 컴파일 오류!
     //
     // "자바의 정수 연산은 최소 단위가 4바이트이다."
     // "그래서 byte나 short의 연산 단위가 기본으로 4바이트이다."
@@ -50,6 +50,7 @@ public class Exam0130 {
     //    s3 = s1 + s2; // 컴파일 오류!
 
     int s4 = s1 + s2;
+    System.out.println(s3);
     System.out.println(s4);
     // 이유?
     // - byte 경우와 마찬가지고 short 메모리의 값을 직접 연산할 수 없다.

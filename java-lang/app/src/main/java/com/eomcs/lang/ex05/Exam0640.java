@@ -17,7 +17,7 @@ public class Exam0640 {
     // int result = 2 + 3 * 4; => i = 5
     // int result = 2 + 12;
     // int result = 14;
-    System.out.printf("%d, %d\n", i, result);
+    System.out.printf("%d, %d\n", i, result); // 5, 14
 
   }
 }

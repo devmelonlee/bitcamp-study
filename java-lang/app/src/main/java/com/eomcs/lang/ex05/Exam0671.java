@@ -10,7 +10,7 @@ public class Exam0671 {
     // a = a - 1;
     // int r = a;
     
-    System.out.printf("%d, %d\n", a, r);
+    System.out.printf("%d, %d\n", a, r); // 4, 4
     // r = --a 연산 순서
     // 1) --a를 먼저 실행 => a = 4
     // 2) a변수의 값을 리턴 => r = 4;

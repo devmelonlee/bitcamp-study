@@ -10,7 +10,7 @@ public class Exam0481 {
     final int ADMIN = 0x04;     // 00000100   - 관리자 로그인
 
     // 2) 메뉴의 접근 범위 설정
-    int menu1 = LOGOUT; // 로그아웃 상태에서만 접근 가능한 메뉴
+    // int menu1 = LOGOUT; // 로그아웃 상태에서만 접근 가능한 메뉴
     int menu2 = GENERAL; // 일반으로 로그인 된 사용자만 접근 가능한 메뉴
     int menu3 = ADMIN; // 관리자로 로그인 된 사용자만 접근 가능한 메뉴
     int menu4 = LOGOUT | GENERAL | ADMIN; // 로그아웃 되었든, 일반으로 로그인 되었든, 관리자로 로그인 되었든 모두 접근 가능한 메뉴

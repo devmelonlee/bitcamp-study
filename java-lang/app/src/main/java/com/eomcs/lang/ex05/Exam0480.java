@@ -11,9 +11,9 @@ public class Exam0480 {
 
     // 2) 메뉴의 접근 범위 설정
     int menu1 = LOGOUT; // 로그아웃 상태에서만 접근 가능한 메뉴
-    int menu2 = GENERAL; // 일반으로 로그인 된 사용자만 접근 가능한 메뉴
-    int menu3 = ADMIN; // 관리자로 로그인 된 사용자만 접근 가능한 메뉴
-    int menu4 = LOGOUT | GENERAL | ADMIN; // 로그아웃 되었든, 일반으로 로그인 되었든, 관리자로 로그인 되었든 모두 접근 가능한 메뉴
+    // int menu2 = GENERAL; // 일반으로 로그인 된 사용자만 접근 가능한 메뉴
+    // int menu3 = ADMIN; // 관리자로 로그인 된 사용자만 접근 가능한 메뉴
+    // int menu4 = LOGOUT | GENERAL | ADMIN; // 로그아웃 되었든, 일반으로 로그인 되었든, 관리자로 로그인 되었든 모두 접근 가능한 메뉴
 
     // 3) 접근 테스트
     // => menu1이 로그아웃 상태에서 접근 가능한 것인지 검사한다.

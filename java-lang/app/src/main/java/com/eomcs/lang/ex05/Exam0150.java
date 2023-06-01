@@ -4,6 +4,7 @@ package com.eomcs.lang.ex05;
 //
 public class Exam0150 {
   public static void main(String[] args) {
+    /*
     byte b = 1;
     short s = 2;
     int i = 3;
@@ -60,6 +61,7 @@ public class Exam0150 {
     //    부동소수점 타입(float, double)에 대해서만 
     //    실행할 수 있다. 
     //    int r12 = bool + i; // 컴파일 오류!
+    */
   }
 }
 

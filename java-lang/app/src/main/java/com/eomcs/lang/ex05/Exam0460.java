@@ -12,13 +12,13 @@ public class Exam0460 {
     // - 또한 조회용으로 사용할 변수이므로 상수로 선언하라.
     //
     //
-    final int CSS           = 0x01; // 0000 0001
+    // final int CSS           = 0x01; // 0000 0001
     final int HTML          = 0x02; // 0000 0010
-    final int PHP           = 0x04; // 0000 0100
+    // final int PHP           = 0x04; // 0000 0100
     final int PYTHON        = 0x08; // 0000 1000
-    final int JAVASCRIPT    = 0x10; // 0001 0000
+    // final int JAVASCRIPT    = 0x10; // 0001 0000
     final int JAVA          = 0x20; // 0010 0000
-    final int CPP           = 0x40; // 0100 0000
+    // final int CPP           = 0x40; // 0100 0000
     final int C             = 0x80; // 1000 0000
 
     // Java와 C, C++, JavaScript를 할 줄 아는 개발자의 정보를 설정하라!

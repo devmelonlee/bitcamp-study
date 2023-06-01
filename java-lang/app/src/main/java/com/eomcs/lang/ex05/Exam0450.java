@@ -19,6 +19,14 @@ public class Exam0450 {
     php = false;
     html = true;
     css = false;
+    System.out.println(c);
+    System.out.println(cpp);
+    System.out.println(java);
+    System.out.println(js);
+    System.out.println(python);
+    System.out.println(php);
+    System.out.println(html);
+    System.out.println(css);
 
     // => 물론 배열을 이용할 수 있다.
     //    boolean 배열을 JVM에서 다룰 때는 각 boolean에 대해
@@ -33,6 +41,7 @@ public class Exam0450 {
     lang[5] = false;
     lang[6] = true;
     lang[7] = false;
+    
 
     // 비트 연산자 사용 후
     // => 4바이트 변수 한 개만 있으면
