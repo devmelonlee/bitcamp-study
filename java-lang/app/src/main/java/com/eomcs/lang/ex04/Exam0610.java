@@ -25,7 +25,9 @@ public class Exam0610 {
     // => 그리고 변수를 선언하는 문장에서 바로 값을 초기화시킨다.
     final float PI = 3.14159f;
     final float MILE = 0.621371f;
-
-
+    System.out.println(a);
+    System.out.println(b);
+    System.out.println(PI);
+    System.out.println(MILE);
   }
 }

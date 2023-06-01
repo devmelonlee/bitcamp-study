@@ -22,12 +22,15 @@ public class Exam0570 {
 
     // 그러나 배열 변수를 선언한 후 따로 초기화시킬 때는
     // 다음과 같이 new 명령을 생략할 수 없다.
-    int[] arr4;
+    //    int[] arr4;
     //    arr4 = {100, 90, 80, 70, 60}; // 컴파일 오류!
 
     // 배열 초기화 명령을 따로 실행할 때는 new int[] 를 생략할 수 없다.
-    int[] arr5;
-    arr5 = new int[]{0, 0, 0, 0, 0}; 
+    //int[] arr5;
+    //arr5 = new int[]{0, 0, 0, 0, 0}; 
+    System.out.println(arr1[0]);
+    System.out.println(arr2[0]);
+    System.out.println(arr3[0]);
   }
 }
 

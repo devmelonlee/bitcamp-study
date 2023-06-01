@@ -14,6 +14,7 @@ public class Exam0521 {
 
     // 변수에 들어 있는 값의 합계를 구해 보자!
     int sum1 = a1 + a2 + a3 + a4 + a5;
+    System.out.println(sum1);
 
     int[] arr1; 
     arr1 = new int[5];

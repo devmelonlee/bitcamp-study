@@ -4,8 +4,8 @@ package com.eomcs.lang.ex04;
 //
 public class Exam0921 {
   public static void main(String[] args) {
-    float f = 3.14f;
-    double d = 9876.56789;
+    // float f = 3.14f;
+    // double d = 9876.56789;
 
     // 부동소수점 메모리의 값을 정수 메모리에 저장할 수 없다.
     // 왜? 

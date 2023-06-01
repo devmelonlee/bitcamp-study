@@ -5,7 +5,7 @@ package com.eomcs.lang.ex04;
 public class Exam0940 {
   public static void main(String[] args) {
 
-    byte b = 100;
+    // byte b = 100;
     short s = 100;
     int i = 100;
     long l = 100;

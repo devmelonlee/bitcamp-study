@@ -12,7 +12,7 @@ public class Exam0950 {
     // 그 외에는 형변환 불가!
 
     // 예) 정수, 부동소수점 ==/==> boolean
-    boolean bool;
+    // boolean bool;
     //    bool = (boolean) 1; // 컴파일 오류!
 
     // 예) 문자열 ==/==> 정수, 부동소수점, 문자, boolean

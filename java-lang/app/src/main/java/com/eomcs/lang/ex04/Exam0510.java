@@ -19,11 +19,11 @@ package com.eomcs.lang.ex04;
 public class Exam0510 {
   public static void main(String[] args) {
     // 배열 사용 전
-    int i1, i2, i3, i4, i5;
+    // int i1, i2, i3, i4, i5;
 
     // 배열 선언
-    int[] arr1 = new int[5]; // OK!
-    int arr2[] = new int[5]; // OK! C-style.
+    // int[] arr1 = new int[5]; // OK!
+    // int arr2[] = new int[5]; // OK! C-style.
 
     // 배열의 크기는 int 타입의 최대 값에서 2를 뺀 값이다.
     // 배열의 최대 크기 = Integer.MAX_VALUE - 2

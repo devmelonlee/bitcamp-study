@@ -4,7 +4,7 @@ package com.eomcs.lang.ex04;
 //
 public class Exam0910 {
   public static void main(String[] args) {
-
+    /* 
     byte b = 100; // 1byte
     short v1 = b; // 1byte ==> 2byte 
 
@@ -18,5 +18,6 @@ public class Exam0910 {
 
     char c = 100; // 2byte(0 ~ 65535)
     //    short x1 = c; // char(0 ~ 65535) ==> short(-32768 ~ 32767), 값의 범위가 맞지 않아 컴파일 오류!
+    */
   }
 }
