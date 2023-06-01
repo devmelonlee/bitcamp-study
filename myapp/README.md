@@ -19,7 +19,7 @@
 ## 4. 프로젝트 컴파일 및 실행
 
 ### 쉘 실행
-- /c/Users/bitcamp/git/bitcamp-study/java-lang/app
+- /c/Users/bitcamp/git/bitcamp-study/myapp/app
 
 ### 컴파일
 - javac -d bin/main src/main/java/bitcamp/myapp/App.java -encoding UTF8
