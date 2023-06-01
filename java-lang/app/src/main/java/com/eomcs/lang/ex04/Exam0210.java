@@ -6,7 +6,7 @@ public class Exam0210 {
   
   public static void main(String[] args) {
     //사용할 변수를 블록({}) 시작 부분에 미리 선언해 놓아도 된다.
-    int age;
+    /*int age;
     int weight;
     int height;
     
@@ -18,5 +18,6 @@ public class Exam0210 {
     int score;
     
     score = 100;
+    */
   }
 }

@@ -1,6 +1,6 @@
 package com.eomcs.lang.ex04;
 
-import java.sql.Date;
+//import java.sql.Date;
 
 //# 변수의 종류
 //- 자바 원시 타입의 값을 저장하는 변수와 메모리 주소를 저장하는 변수가 있다.
@@ -12,6 +12,7 @@ import java.sql.Date;
 public class Exam0400 {
   public static void main(String[] args) {
     //자바 원시 데이터 타입 변수
+    /* 
     //- 정수
     byte b;  // 1바이트 크기의 메모리
     short s; // 2바이트 크기의 메모리 
@@ -31,6 +32,7 @@ public class Exam0400 {
     //레퍼런스 변수
     String str; // 자바 언어 명세서에는 메모리의 크기가 정의되어 있지 않다. 메모리 주소를 저장할 만큼 큰 크기
     Date date;  // 자바 언어 명세서에는 메모리의 크기가 정의되어 있지 않다. 메모리 주소를 저장할 만큼 큰 크기
+    */
   }
 }
 

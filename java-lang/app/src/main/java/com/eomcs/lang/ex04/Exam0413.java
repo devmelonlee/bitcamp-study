@@ -4,6 +4,7 @@ package com.eomcs.lang.ex04;
 //
 public class Exam0413 {  
   public static void main(String[] args) {
+    /*
     long l = 100;
     int i = 100;
     short s = 100;
@@ -46,5 +47,6 @@ public class Exam0413 {
     s2 = b;
     b2 = b;
     //c2 = b; // 컴파일 오류! char(0 ~ 65535) | byte(-128 ~ 127)
+    */
   }
 }

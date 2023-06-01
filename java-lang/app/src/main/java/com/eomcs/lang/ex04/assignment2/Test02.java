@@ -22,6 +22,8 @@ public class Test02 {
     String user = keyScan.nextLine();
     System.out.printf("사용자: %s\n", user);
 
+    keyScan.close();
+
     int random = (int)(Math.random() * 3);
     String computer;
     if (random == 0) 
@@ -51,8 +53,6 @@ public class Test02 {
     }
     
     System.out.println("=> 당신은 비기거나 졌습니다.");
-    
-    keyScan.close();
   }
 }
 
