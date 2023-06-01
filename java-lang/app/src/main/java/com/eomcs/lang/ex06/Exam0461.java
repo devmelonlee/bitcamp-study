@@ -6,7 +6,8 @@ import java.util.ArrayList;
 //
 public class Exam0461 {
   public static void main(String[] args) {
-    ArrayList list = new ArrayList();
+    // ArrayList list = new ArrayList();
+    ArrayList<Object> list = new ArrayList<>();
     list.add("홍길동");
     list.add(3.14f);
     list.add(true);

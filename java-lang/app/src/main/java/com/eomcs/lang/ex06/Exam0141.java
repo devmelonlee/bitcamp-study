@@ -4,7 +4,7 @@ package com.eomcs.lang.ex06;
 //
 public class Exam0141 {
   public static void main(String[] args) {
-    int age = 17;
+    // int age = 17;
 
     // 잘못 사용한 예:
     // => else 문만 단독으로 사용할 수 없다.

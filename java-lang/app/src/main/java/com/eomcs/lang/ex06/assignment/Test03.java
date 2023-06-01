@@ -3,7 +3,7 @@ package com.eomcs.lang.ex06.assignment;
 public class Test03 {
 
   public static void main(String[] args) {
-    
+    /*
     int width = Console.inputInt();
     
     if (width % 2 == 0)
@@ -22,5 +22,6 @@ public class Test03 {
       Graphic.drawLine(line, '$');
       System.out.println();
     }
+    */
   }
 }

@@ -13,7 +13,7 @@ public class Console {
     Scanner keyScan = new Scanner(System.in);
     System.out.print(message);
     int width = keyScan.nextInt();
-    //keyScan.close();
+    keyScan.close();
     return width;
   }
 }
