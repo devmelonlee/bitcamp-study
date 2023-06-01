@@ -32,6 +32,7 @@ public class Exam0250 {
 
     hello(arr);
     System.out.println("-------------------");
+    System.out.println(arr.length);
 
     //    hello("홍길동", 20, "오호라"); // 다른 타입은 안된다. 컴파일 오류!
   }
