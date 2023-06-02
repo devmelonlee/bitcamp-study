@@ -24,7 +24,7 @@ public class Exam0540 {
 
     System.out.printf("이름: %s\n", args[0]);
     System.out.printf("총점: %d\n", sum);
-    System.out.printf("평균: %.1f\n", sum / 3f);
+    System.out.printf("평균: %.1f\n", sum / 3f); //sum을 임시로 float으로 ,3f 써서 float으로, .1 : 소수점 한자리까지 출력
   }
 }
 

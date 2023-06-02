@@ -13,7 +13,7 @@ public class Exam0270 {
   //
   //    => 중간에 다른 타입이 온다 하더라도 안된다.
   //  static void m1(String... names, int a, String... emails) {}// 컴파일 오류!
-  //  static void m1(String[] names, int a, String[] emails) {} // OK!
+   static void m1(String[] names, int a, String[] emails) {} // OK!
   //
   // 위의 메서드는 값을 구분할 수 있을 것 같은데?
   // => 그냥 다음과 같이 호출하면 되는 것 아닌가?
