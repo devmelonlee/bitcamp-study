@@ -33,21 +33,47 @@
 - break 활용 
 - while 활용
 
-## 7. 메서드를 이용하여 기능 단위로 명령문 묶기
+### 10일(6/5,월)
 
-- static 메서드를 정의하고 호출하는 방법
+- 자바 프로그래밍
+  - 클래스 사용법
+    - 클래스 문법의 목적
+    - 클래스의 public 접근 제어
+    - 메서드의 public 접근 제어
+  - 패키지 사용법
+    - import를 이용하여 패키지를 미리 지정하기
+- 프로젝트 실습
+  - 8. 메서드 간에 변수 공유하기 : 스태틱 변수 사용법(계속)
+    - 리팩토링: 메서드 추가 정의, 상수 선언
+  - 9. 메서드를 역할에 따라 분류하기 : 클래스 및 패키지 사용법
+- 과제(개인)
+  - 개인 프로젝트 수행
+    - 프로젝트 폴더 생성 및 초기화
+    - 실습 프로젝트와 마찬가지로 1단계에서 9단계까지 진행
+    - 각 단계별로 app 폴더를 백업할 것.
 
-## 8. 스태틱 문법으로 메서드 간에 변수 공유하기
 
-- static 변수를 정의하고 사용하는 방법
+### 11일(6/7,수)
+
+- 과제(개인) 발표
+  - 개인 프로젝트 시연
+  - 프로그래머스 일별 점수 보고
+    - 6/5(점수), 6/6(점수) 
+  - github.com 잔디 확인
+    - 개인별 github.com 의 bitcamp-study 저장소 주소 제출
+      - 이름, url
+    - to: jinyoung.eom@gmail.com
+
 
 ---
+
 
 ### 쉘 실행
 - /c/Users/bitcamp/git/bitcamp-study/myapp/app
 
 ### 컴파일
 - javac -d bin/main src/main/java/bitcamp/myapp/App.java -encoding UTF8
+- gradle compileJava
 
 ### 빌드
 - java -cp bin/main bitcamp.myapp.App
