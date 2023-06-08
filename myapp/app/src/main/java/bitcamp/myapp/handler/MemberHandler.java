@@ -81,7 +81,6 @@ public class MemberHandler {
     System.out.println("해당 번호의 회원이 없습니다!");
   }
 
-
   private static char inputGender(char gender) {
     String label;
     if (gender == 0) {
