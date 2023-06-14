@@ -1,4 +1,4 @@
-package bitcamp.test.step11;
+package bitcamp.test.step09;
 
 // 1) 낱개의 변수 사용
 // 2) 낱개의 변수 재사용
@@ -9,9 +9,6 @@ package bitcamp.test.step11;
 // 7) GRASP 패턴: Information Expert(정보를 갖고 있는 클래스가 그 정보를 다룬다.)
 // 8) 인스턴스 메서드 도입
 // 9) 객체 생성이 복잡한 경우 메서드로 분리하는 것이 낫다. (디자인 패턴 : 팩토리 메서드)
-// 10) GRASP 패턴: Information Expert 을 create 로 이동
-// 11) 생성자 도입 : 인스턴스 변수를 보다 쉽게 초기화 시키기
-
 public class App {
   
   static class Score {
@@ -22,20 +19,10 @@ public class App {
     int sum;
     float aver;
 
-    // 생성자, 생성자는 리턴 타입이 없어야 한다. 파라미터 변수를 선언해야한다.
-    Score(String name, int kor, int eng, int math) {
-      this.name = name;
-      this.kor = kor;
-      this.eng = eng;
-      this.math = math;
-      this.compute();
-    }
-
     void compute() {
       this.sum = this.kor + this.eng + this.math;
       this.aver = this.sum / 3f;
     }
-     // 팩토리 메서드 => 삭제되었따 인스턴스 만들면서 바로 초기화 시켜준다.
   }
   
   public static void main(String[] args) {
@@ -44,21 +31,26 @@ public class App {
     Score[] scores = new Score[MAX_SIZE];
     int length = 0;
 
-    //  new Score(문자열, int, int, int);
-    //  => score 설계도에 따라 인스턴스를 생성하라
-    //  => 생성한 후 string, int, int, int 파라미터 값을 받는 생성자를 호출하라
-    //  => 이렇게 초기화시킨 인스턴스의 주소를 리턴하라.
-
-    scores[length++] = new Score("홍길동", 100, 100, 100); // 생성자 호출
-    scores[length++] = new Score("임꺽정", 90, 90, 90);
-    scores[length++] = new Score("유관순", 80, 80, 80);
+    
+    scores[length++] = createScore("홍길동", 100, 100, 100);
+    scores[length++] = createScore("임꺽정", 90, 90, 90);
+    scores[length++] = createScore("유관순", 80, 80, 80);
 
     for (int i = 0; i < length; i++) {
       printScore(scores[i]);
     }
 
   }
- 
+  // 팩토리 메서드
+  static Score createScore(String name, int kor, int eng, int math) {
+    Score s = new Score();
+    s.name = name;
+    s.kor = kor;
+    s.eng = eng;
+    s.math = math;
+    s.compute();
+    return s; // 주소 리턴
+  }
 
   static void printScore(Score s) {
     System.out.printf("%s: 합계=%d, 평균=%.1f\n", 

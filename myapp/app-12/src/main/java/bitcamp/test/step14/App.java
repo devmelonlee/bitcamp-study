@@ -1,6 +1,6 @@
-package bitcamp.test.step17;
+package bitcamp.test.step14;
 
-import bitcamp.test.step17.vo.Score;
+import bitcamp.test.step14.vo.Score;
 
 // 1) 낱개의 변수 사용
 // 2) 낱개의 변수 재사용
@@ -17,11 +17,6 @@ import bitcamp.test.step17.vo.Score;
 // 12) 클래스를 유지하기 쉽게 별도의 파일로 분리
 // 13) 클래스를 유지보수하기 쉽게 패키지로 분류
 // 14) 외부접근 차단과 값꺼내기 : private/public, getter/setter
-// 15) 프로그래밍의 일관성을 위해 보통 다른 필드에 대해서도 getter를 만들고 사용한다.
-// 16) 필드의 직접 접근을 막고 setter를 정의하는 이유
-// 17) 필드의 직접 접근을 막기 : 인스턴스 변수에 무효한 값이 저장되지 않게 하기 위해
-//    => getter 정의 : 값을 꺼낼 때 사용
-//    => setter 정의 : 값을 저장할 때 사용
 
 public class App {
   
@@ -41,18 +36,7 @@ public class App {
     scores[length++] = new Score("유관순", 80, 80, 80);
 
     //이렇게 접근하는 걸 막을 수 없다. -> private로 바꾸면 꺼낼 수도 없다.
-    //scores[0].sum = 20000; // 접근 불가
-    scores[0].setKor(70); // 생성 가능하지만 유효가능한 범위내에서만..
-
-    // 합계와 평균 계산 끝난 후에  국어 점수를 변경한다면?
-    // => 국영수 점수와 합계, 평균 접수가 일치하지 않는문제가 발생한다.
-    // 데이터에 결함이 발생한다.
-    // 국영수 점수를 변경한 후에 compute()를 호출하면 되지 않을까?
-    // 만약 개발자가 compute() 호출하는걸
-    //  scores[0].compute() ; 호출시키 해야 한다. 
-    // 만약 유효하지 않은 국영수 점수를 입력한다면? -> 막을 방법이 없다.
-    // scores[0].kor = 70;
-    // scores[0].compute();
+    //scores[0].sum = 20000;
 
     for (int i = 0; i < length; i++) {
       printScore(scores[i]);
@@ -62,8 +46,8 @@ public class App {
  
 
   static void printScore(Score s) {
-    System.out.printf("%s: 국어=%d, 영어=%d, 수학=%d, 합계=%d, 평균=%.1f\n", 
-      s.getName(), s.getKor(), s.getEng(), s.getMath(), s.getSum(), s.getAver());
+    System.out.printf("%s: 합계=%d, 평균=%.1f\n", 
+      s.name, s.getSum(), s.getAver());
   }
 
 }
