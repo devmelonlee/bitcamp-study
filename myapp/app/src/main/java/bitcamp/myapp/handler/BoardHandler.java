@@ -89,17 +89,16 @@ public class BoardHandler {
 
   // 암호가 같으면 삭제!
   public void deleteBoard() {
-
     int deletedIndex = indexOf(this.prompt.inputInt("번호? "));
     if (deletedIndex == -1) {
-      System.out.println("해당 번호의 회원이 없습니다!");
+      System.out.println("해당 번호의 게시글이 없습니다!");
       return;
     }
 
     for (int i = deletedIndex; i < this.length - 1; i++) {
       this.boards[i] = this.boards[i + 1];
-
     }
+
     this.boards[--this.length] = null;
 
   }
