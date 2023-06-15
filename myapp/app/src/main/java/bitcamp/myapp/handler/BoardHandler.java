@@ -3,44 +3,73 @@ package bitcamp.myapp.handler;
 import bitcamp.myapp.vo.Board;
 import bitcamp.util.Prompt;
 
-public class BoardHandler {
+public class BoardHandler implements Handler {
 
-  // 인스턴스에 상관없이 공통으로 사용하는 필드라면 스태틱 필드로 선언한다.
-  private static final int MAX_SIZE = 100;
-
-  // 인스턴스 마다 별개로 관리해야 할 데이터라면 논스태틱 필드(인스턴스 필드)로 선언한다.
+  private BoardList list = new BoardList();
   private Prompt prompt;
-  private Board[] boards = new Board[MAX_SIZE];
-  private int length = 0;
+  private String title;
 
-  public BoardHandler(Prompt prompt) {
+  public BoardHandler(Prompt prompt, String title) {
     this.prompt = prompt;
+    this.title = title;
+  }
+
+  public void execute() {
+    printMenu();
+
+    while (true) {
+      String menuNo = prompt.inputString("%s> ", this.title);
+      if (menuNo.equals("0")) {
+        return;
+      } else if (menuNo.equals("menu")) {
+        printMenu();
+      } else if (menuNo.equals("1")) {
+        this.inputBoard();
+      } else if (menuNo.equals("2")) {
+        this.printBoards();
+      } else if (menuNo.equals("3")) {
+        this.viewBoard();
+      } else if (menuNo.equals("4")) {
+        this.viewBoard();
+      } else if (menuNo.equals("5")) {
+        this.viewBoard();
+
+      } else {
+        System.out.println("메뉴 번호가 옳지 않습니다.!");
+      }
+    }
+  }
+
+  private static void printMenu() {
+    System.out.println("1. 등록");
+    System.out.println("2. 목록");
+    System.out.println("3. 조회");
+    System.out.println("4. 변경");
+    System.out.println("5. 삭제");
+    System.out.println("0. 메인");
   }
 
   // 인스턴스 멤버(필드나 메서드)를 사용하는 경우 인스턴스 메서드로 정의해야 한다.
-  public void inputBoard() {
-    if (!this.available()) {
-      System.out.println("더이상 입력할 수 없습니다!");
-      return;
-    }
+  private void inputBoard() {
 
     Board board = new Board();
-    board.setTitle(this.prompt.inputString("제목? "));
-    board.setContent(this.prompt.inputString("내용? "));
-    board.setWriter(this.prompt.inputString("작성자? "));
-    board.setPassword(this.prompt.inputString("암호? "));
+    board.setTitle(prompt.inputString("제목? "));
+    board.setContent(prompt.inputString("내용? "));
+    board.setWriter(prompt.inputString("작성자? "));
+    board.setPassword(prompt.inputString("암호? "));
     // 위에서 만든 Member 인스턴스의 주소를 잃어버리지 않게
     // 레퍼런스 배열에 담는다.
-    this.boards[this.length++] = board;
   }
 
-  public void printBoards() {
+  private void printBoards() {
     System.out.println("---------------------------------------");
     System.out.println("번호, 제목, 작성자, 조회수, 등록일");
     System.out.println("---------------------------------------");
 
+    Board[] arr = this.list.List();
 
-    for (int i = 0; i < this.length; i++) {
+
+    for (Board board : ) {
       Board board = this.boards[i];
       // Date date = new Date(board.getCreatedDate());
 
@@ -49,7 +78,7 @@ public class BoardHandler {
     }
   }
 
-  public void viewBoard() {
+  private void viewBoard() {
     String boardNo = this.prompt.inputString("글 번호? ");
     for (int i = 0; i < this.length; i++) {
       Board board = this.boards[i];
@@ -66,7 +95,7 @@ public class BoardHandler {
     System.out.println("해당 번호의 게시글이 없습니다!");
   }
 
-  public void updateBoard() { // added
+  private void updateBoard() { // added
     String boardNo = this.prompt.inputString("글 번호? ");
     for (int i = 0; i < this.length; i++) {
       Board board = this.boards[i];
@@ -88,7 +117,7 @@ public class BoardHandler {
 
 
   // 암호가 같으면 삭제!
-  public void deleteBoard() {
+  private void deleteBoard() {
     int deletedIndex = indexOf(this.prompt.inputInt("번호? "));
     if (deletedIndex == -1) {
       System.out.println("해당 번호의 게시글이 없습니다!");
@@ -111,10 +140,6 @@ public class BoardHandler {
       }
     }
     return -1;
-  }
-
-  private boolean available() {
-    return this.length < MAX_SIZE;
   }
 
 }
