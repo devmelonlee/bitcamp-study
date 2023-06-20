@@ -1,27 +1,21 @@
 package bitcamp.myapp.handler;
 
 import bitcamp.myapp.vo.Member;
+import bitcamp.util.List;
 import bitcamp.util.Prompt;
 
-// MemberHandler는 Handler 규칙에 따라 메서드를 구현했다.
-// 즉 Handler 인터페이스에 선언된 메서드를 모두 정의했다.
 public class MemberHandler implements Handler {
 
-  private ArrayList list = new ArrrayList();
+  private List list;
   private Prompt prompt;
   private String title;
-  // variable initializer(변수 초기화 문장) => 생성자로 이동
 
-  // 생성자 : 인스턴스를 사용할 수 있도록 유효한 값으로 초기화 시키는 일을한다.
-  // => 필요한 값을 외부에서 받고 싶으면 파라미터를 선언하라.
-  public MemberHandler(Prompt prompt, String title) {
-    // 어차피 여기로 컴파일러가 생성자를 생성해준다.
+  public MemberHandler(Prompt prompt, String title, List list) {
     this.prompt = prompt;
     this.title = title;
+    this.list = list;
   }
 
-  // Handler 인터페이스에 선언된 대로 정의했다.
-  // => "Handler 인터페이스를 구현했다." 라고 표현한다.
   public void execute() {
     printMenu();
 
@@ -63,9 +57,7 @@ public class MemberHandler implements Handler {
     m.setPassword(this.prompt.inputString("암호? "));
     m.setGender(inputGender((char) 0));
 
-    if (!this.list.add(m)) {
-      System.out.println("입력 실패입니다!");
-    }
+    this.list.add(m);
   }
 
   private void printMembers() {
@@ -73,9 +65,8 @@ public class MemberHandler implements Handler {
     System.out.println("번호, 이름, 이메일, 성별");
     System.out.println("---------------------------------------");
 
-    Object[] arr = this.list.list();
-    for (Object obj : arr) {
-      Member m = (Member) obj;
+    for (int i = 0; i < this.list.size(); i++) {
+      Member m = (Member) this.list.get(i);
       System.out.printf("%d, %s, %s, %s\n", m.getNo(), m.getName(), m.getEmail(),
           toGenderString(m.getGender()));
     }
@@ -84,7 +75,7 @@ public class MemberHandler implements Handler {
   private void viewMember() {
     int memberNo = this.prompt.inputInt("번호? ");
 
-    Member m = (Member) this.list.get(new Member(memberNo));
+    Member m = this.findBy(memberNo);
     if (m == null) {
       System.out.println("해당 번호의 회원이 없습니다!");
       return;
@@ -102,7 +93,7 @@ public class MemberHandler implements Handler {
   private void updateMember() {
     int memberNo = this.prompt.inputInt("번호? ");
 
-    Member m = (Member) this.list.get(new Member(memberNo));
+    Member m = this.findBy(memberNo);
     if (m == null) {
       System.out.println("해당 번호의 회원이 없습니다!");
       return;
@@ -137,10 +128,19 @@ public class MemberHandler implements Handler {
   }
 
   private void deleteMember() {
-    // if (!this.list.delete(wrapper auto boxing)
-    if (!this.list.delete(this.prompt.inputInt("번호? "))) {
+    if (!this.list.remove(new Member(this.prompt.inputInt("번호? ")))) {
       System.out.println("해당 번호의 회원이 없습니다!");
     }
   }
-}
 
+  private Member findBy(int no) {
+    for (int i = 0; i < this.list.size(); i++) {
+      Member m = (Member) this.list.get(i);
+      if (m.getNo() == no) {
+        return m;
+      }
+    }
+    return null;
+  }
+
+}

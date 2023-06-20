@@ -1,17 +1,21 @@
 package bitcamp.myapp.handler;
 
 import bitcamp.myapp.vo.Board;
+import bitcamp.util.List;
 import bitcamp.util.Prompt;
 
 public class BoardHandler implements Handler {
 
-  private BoardList list = new BoardList();
+
+  private List list;
   private Prompt prompt;
+
   private String title;
 
-  public BoardHandler(Prompt prompt, String title) {
+  public BoardHandler(Prompt prompt, String title, List list) {
     this.prompt = prompt;
     this.title = title;
+    this.list = list;
   }
 
   public void execute() {
@@ -48,16 +52,14 @@ public class BoardHandler implements Handler {
     System.out.println("0. 메인");
   }
 
-  // 인스턴스 멤버(필드나 메서드)를 사용하는 경우 인스턴스 메서드로 정의해야 한다.
   private void inputBoard() {
     Board board = new Board();
     board.setTitle(this.prompt.inputString("제목? "));
     board.setContent(this.prompt.inputString("내용? "));
     board.setWriter(this.prompt.inputString("작성자? "));
     board.setPassword(this.prompt.inputString("암호? "));
+
     this.list.add(board);
-    // 위에서 만든 Member 인스턴스의 주소를 잃어버리지 않게
-    // 레퍼런스 배열에 담는다.
   }
 
   private void printBoards() {
@@ -65,9 +67,8 @@ public class BoardHandler implements Handler {
     System.out.println("번호, 제목, 작성자, 조회수, 등록일");
     System.out.println("---------------------------------------");
 
-    Board[] arr = this.list.list();
-
-    for (Board board : arr) {
+    for (int i = 0; i < this.list.size(); i++) {
+      Board board = (Board) this.list.get(i);
       System.out.printf("%d, %s, %s, %d, %tY-%5$tm-%5$td\n", board.getNo(), board.getTitle(),
           board.getWriter(), board.getViewCount(), board.getCreatedDate());
     }
@@ -76,7 +77,7 @@ public class BoardHandler implements Handler {
   private void viewBoard() {
     int boardNo = this.prompt.inputInt("번호? ");
 
-    Board board = this.list.get(boardNo);
+    Board board = this.findBy(boardNo);
     if (board == null) {
       System.out.println("해당 번호의 게시글이 없습니다!");
       return;
@@ -87,12 +88,13 @@ public class BoardHandler implements Handler {
     System.out.printf("작성자: %s\n", board.getWriter());
     System.out.printf("조회수: %s\n", board.getViewCount());
     System.out.printf("등록일: %tY-%1$tm-%1$td\n", board.getCreatedDate());
+    board.setViewCount(board.getViewCount() + 1);
   }
 
   private void updateBoard() {
     int boardNo = this.prompt.inputInt("번호? ");
 
-    Board board = this.list.get(boardNo);
+    Board board = this.findBy(boardNo);
     if (board == null) {
       System.out.println("해당 번호의 게시글이 없습니다!");
       return;
@@ -108,8 +110,20 @@ public class BoardHandler implements Handler {
   }
 
   private void deleteBoard() {
-    if (!this.list.delete(this.prompt.inputInt("번호? "))) {
+    if (!this.list.remove(new Board(this.prompt.inputInt("번호? ")))) {
       System.out.println("해당 번호의 게시글이 없습니다!");
     }
   }
+
+  private Board findBy(int no) {
+    for (int i = 0; i < this.list.size(); i++) {
+      Board b = (Board) this.list.get(i);
+      if (b.getNo() == no) {
+        return b;
+      }
+    }
+    return null;
+  }
+
+
 }

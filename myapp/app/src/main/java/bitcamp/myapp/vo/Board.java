@@ -10,11 +10,33 @@ public class Board {
   private String writer;
   private String password;
   private int viewCount;
-  private long createdDate; // 1970/1/1부터~
+  private long createdDate;
 
   public Board() {
     this.no = boardNo++;
     this.createdDate = System.currentTimeMillis();
+  }
+
+  public Board(int no) {
+    this.no = no;
+  }
+
+  public boolean equals(Object obj) {
+    if (obj == null) {
+      return false;
+    }
+
+    if (this.getClass() != obj.getClass()) {
+      return false;
+    }
+
+    Board b = (Board) obj;
+
+    if (this.getNo() != b.getNo()) {
+      return false;
+    }
+
+    return true;
   }
 
   public int getNo() {
