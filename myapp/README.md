@@ -119,6 +119,21 @@
 - 오버로딩을 활용하여 생성자를 추가
   - Member와 Board 클래스 적용
 - MemberHandler와 BoardHandler에 적용
+
+## 20. LinkedList 자료구조 구현하기
+
+- 목록 관리 범용 클래스 LinkedList 정의
+  - LinkedList 구동원리 이해 및 구현
+  - 중첩 클래스 활용
+- MemberHandler와 BoardHandler에 적용
+
+## 21. 인터페이스를 이용하여 List 사용 규칙 정의하기
+
+- 목록 관리 객체의 사용 규칙을 인터페이스 정의
+  - List 인터페이스 정의
+  - ArrayList, LinkedList에 List 인터페이스 적용
+- MemberHandler와 BoardHandler에 적용
+  - List 구현체를 생성자를 통해 주입: DI(Dependency Injection) 적용
 ---
 
 
