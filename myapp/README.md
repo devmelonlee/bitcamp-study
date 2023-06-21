@@ -134,6 +134,18 @@
   - ArrayList, LinkedList에 List 인터페이스 적용
 - MemberHandler와 BoardHandler에 적용
   - List 구현체를 생성자를 통해 주입: DI(Dependency Injection) 적용
+
+## 22. Stack, Queue 자료구조 구현하기
+
+- Stack과 Queue의 구동원리 이해 및 구현
+- Stack 적용
+  - Prompt 클래스의 서브 클래스 MenuPrompt 정의
+  - MenuPrompt에서 Stack을 이용하여 프롬프트 제목에 breadcrumb 기능을 적용
+- Queue 적용
+  - MenuPrompt 클래스에 메뉴 출력 기능을 추가
+    - App, BoardHandler, MemberHandler 변경
+  - MenuPrompt 클래스에 입력한 명령어의 history 기능을 추가
+
 ---
 
 
