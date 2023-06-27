@@ -1,15 +1,15 @@
 package bitcamp.myapp.handler;
 
+import java.util.List;
 import bitcamp.myapp.vo.Member;
 import bitcamp.util.ActionListener;
 import bitcamp.util.BreadcrumbPrompt;
-import bitcamp.util.List;
 
 public class MemberAddListener implements ActionListener {
 
-  private List list;
+  private List<String> list;
 
-  public MemberAddListener(List list) {
+  public MemberAddListener(List<String> list) {
     this.list = list;
   }
 
@@ -19,7 +19,7 @@ public class MemberAddListener implements ActionListener {
     m.setName(prompt.inputString("이름? "));
     m.setEmail(prompt.inputString("이메일? "));
     m.setPassword(prompt.inputString("암호? "));
-    m.setGender(inputGender((char)0, prompt));
+    m.setGender(inputGender((char) 0, prompt));
 
     this.list.add(m);
   }
@@ -37,10 +37,7 @@ public class MemberAddListener implements ActionListener {
     }
 
     while (true) {
-      String menuNo = prompt.inputString(label +
-          "  1. 남자\n" +
-          "  2. 여자\n" +
-          "> ");
+      String menuNo = prompt.inputString(label + "  1. 남자\n" + "  2. 여자\n" + "> ");
 
       switch (menuNo) {
         case "1":

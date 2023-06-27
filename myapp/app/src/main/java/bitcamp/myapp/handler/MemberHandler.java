@@ -1,7 +1,7 @@
 package bitcamp.myapp.handler;
 
+import java.util.List;
 import bitcamp.myapp.vo.Member;
-import bitcamp.util.List;
 import bitcamp.util.BreadcrumbPrompt;
 
 public class MemberHandler implements Handler {
