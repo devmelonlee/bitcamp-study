@@ -27,7 +27,15 @@ public class BoardDetailListener extends AbstractBoardListener {
     System.out.printf("등록일: %tY-%1$tm-%1$td\n", board.getCreatedDate());
     board.setViewCount(board.getViewCount() + 1);
   }
-
 }
+
+
+
+
+
+
+
+
+
 
 

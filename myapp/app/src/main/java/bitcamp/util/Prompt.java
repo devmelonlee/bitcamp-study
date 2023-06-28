@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Prompt {
 
-  private Scanner scanner; // 인스턴스 필드
+  private Scanner scanner;
 
   // default constructor 정의
   public Prompt() {

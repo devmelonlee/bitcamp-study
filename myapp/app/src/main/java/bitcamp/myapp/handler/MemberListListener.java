@@ -3,15 +3,12 @@ package bitcamp.myapp.handler;
 import java.util.Iterator;
 import java.util.List;
 import bitcamp.myapp.vo.Member;
-import bitcamp.util.ActionListener;
 import bitcamp.util.BreadcrumbPrompt;
 
-public class MemberListListener implements ActionListener {
+public class MemberListListener extends AbstractMemberListener {
 
-  private List list;
-
-  public MemberListListener(List list) {
-    this.list = list;
+  public MemberListListener(List<Member> list) {
+    super(list);
   }
 
   @Override
@@ -23,14 +20,11 @@ public class MemberListListener implements ActionListener {
     // 목록에서 데이터를 대신 꺼내주는 객체를 얻는다.
     Iterator<Member> iterator = list.iterator();
     while (iterator.hasNext()) {
-      Member m = this.list.get(i);
-      System.out.printf("%d, %s, %s, %s\n", m.getNo(), m.getName(), m.getEmail(),
+      Member m = iterator.next();
+      System.out.printf("%d, %s, %s, %s\n",
+          m.getNo(), m.getName(), m.getEmail(),
           toGenderString(m.getGender()));
     }
-  }
-
-  private static String toGenderString(char gender) {
-    return gender == 'M' ? "남성" : "여성";
   }
 
 }

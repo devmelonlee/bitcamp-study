@@ -6,7 +6,7 @@ import bitcamp.util.BreadcrumbPrompt;
 
 public class BoardAddListener extends AbstractBoardListener {
 
-  public BoardAddListener(List list) {
+  public BoardAddListener(List<Board> list) {
     super(list);
   }
 
@@ -20,5 +20,14 @@ public class BoardAddListener extends AbstractBoardListener {
     this.list.add(board);
   }
 }
+
+
+
+
+
+
+
+
+
 
 

@@ -6,7 +6,7 @@ import bitcamp.util.ActionListener;
 
 public abstract class AbstractBoardListener implements ActionListener {
 
-  protected List<Board> list; // 자식 클래스는 직접 접근 가능
+  protected List<Board> list;
 
   public AbstractBoardListener(List<Board> list) {
     this.list = list;

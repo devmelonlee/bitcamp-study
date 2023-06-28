@@ -3,8 +3,9 @@ package bitcamp.util;
 import java.util.ArrayList;
 
 public class Menu {
+
   private String title;
-  private ArrayList<ActionListener> listeners = new ArrayList();
+  private ArrayList<ActionListener> listeners = new ArrayList<>();
 
   public Menu(String title) {
     this.title = title;
@@ -19,7 +20,7 @@ public class Menu {
     listeners.add(listener);
   }
 
-  public void remobeActionListener(ActionListener listener) {
+  public void removeActionListener(ActionListener listener) {
     listeners.remove(listener);
   }
 
@@ -31,8 +32,6 @@ public class Menu {
     for (int i = 0; i < listeners.size(); i++) {
       ActionListener listener = listeners.get(i);
       listener.service(prompt);
-
     }
   }
-
 }

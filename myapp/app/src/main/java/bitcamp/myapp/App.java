@@ -16,6 +16,7 @@ import bitcamp.myapp.handler.MemberDetailListener;
 import bitcamp.myapp.handler.MemberListListener;
 import bitcamp.myapp.handler.MemberUpdateListener;
 import bitcamp.myapp.vo.Board;
+import bitcamp.myapp.vo.Member;
 import bitcamp.util.BreadcrumbPrompt;
 import bitcamp.util.Menu;
 import bitcamp.util.MenuGroup;
@@ -24,7 +25,7 @@ public class App {
 
   public static void main(String[] args) {
 
-    ArrayList<Object> memberList = new ArrayList<>(); // 생략
+    ArrayList<Member> memberList = new ArrayList<>();
     LinkedList<Board> boardList = new LinkedList<>();
     LinkedList<Board> readingList = new LinkedList<>();
 
@@ -57,29 +58,16 @@ public class App {
     mainMenu.add(readingMenu);
 
     Menu helloMenu = new Menu("안녕!");
-    helloMenu.addActionListener(new HelloListener());
     helloMenu.addActionListener(new HeaderListener());
+    helloMenu.addActionListener(new HelloListener());
     helloMenu.addActionListener(new FooterListener());
     mainMenu.add(helloMenu);
-
-    // Handler memberHandler = new MemberHandler(prompt, "회원", new ArrayList());
-    // Handler boardHandler = new BoardDeleteListener(prompt, "게시글", new LinkedList());
-    // Handler readingHandler = new BoardDeleteListener(prompt, "독서록", new LinkedList());
 
     printTitle();
 
     mainMenu.execute(prompt);
 
     prompt.close();
-  }
-
-  static String getMenu() {
-    StringBuilder menu = new StringBuilder();
-    menu.append("1. 회원\n");
-    menu.append("2. 게시글\n");
-    menu.append("3. 독서록\n");
-    menu.append("0. 종료\n");
-    return menu.toString();
   }
 
   static void printTitle() {
