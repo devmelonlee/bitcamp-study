@@ -1,11 +1,13 @@
 // BufferedFileInputStream과 BufferedFileOutputStream을 사용하여 파일 복사 및 시간 측정
 package com.eomcs.io.ex06;
 
+import java.io.FileInputStream;
+
 public class Exam0330 {
 
   public static void main(String[] args) throws Exception {
-    BufferedFileInputStream in = new BufferedFileInputStream("temp/jls11.pdf");
-    BufferedFileOutputStream out = new BufferedFileOutputStream("temp/jls11_4.pdf");
+    BufferedFileInputStream in = new BufferedFileInputStream("temp/jls17.pdf");
+    BufferedFileOutputStream out = new BufferedFileOutputStream("temp/jls17_2.pdf");
 
     int b;
 

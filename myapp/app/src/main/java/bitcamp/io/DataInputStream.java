@@ -19,25 +19,22 @@ public class DataInputStream extends FileInputStream {
   }
 
   public long readLong() throws IOException {
-    return (long) this.read() << 56
-        |(long) this.read() << 48
-        |(long) this.read() << 40
-        |(long) this.read() << 32
-        |(long) this.read() << 24
-        |(long) this.read() << 16
-        |(long) this.read() << 8
-        |this.read();
+    return (long) this.read() << 56 | (long) this.read() << 48 | (long) this.read() << 40
+        | (long) this.read() << 32 | (long) this.read() << 24 | (long) this.read() << 16
+        | (long) this.read() << 8 | this.read();
   }
-  
+
   public char readChar() throws IOException {
-    return (char)(this.read() << 8 | this.read());
+    return (char) (this.read() << 8 | this.read());
   }
-  
+
   public String readUTF() throws IOException {
     int length = this.read() << 8 | this.read();
     byte[] buf = new byte[length];
     this.read(buf);
-    return new String(buf,"UTF-8");
+    return new String(buf, "UTF-8");
   }
-  
+
 }
+
+

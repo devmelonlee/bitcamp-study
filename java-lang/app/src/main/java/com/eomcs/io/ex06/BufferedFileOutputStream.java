@@ -1,49 +1,47 @@
-package com.eomcs.io.ex06;
+package bitcamp.io;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class BufferedFileOutputStream extends FileOutputStream {
-  byte[] buf = new byte[8192];
-  int cursor;
+public class BufferedDataOutputStream extends FileOutputStream {
 
-  public BufferedFileOutputStream(String filename) throws Exception {
-    super(filename);
+  public BufferedDataOutputStream(String name) throws FileNotFoundException {
+    super(name);
   }
 
-  // 오버라이딩: 상속 받은 메서드를 서브 클래스의 역할에 맞춰서 재정의 한다.
-  // 즉 버퍼를 사용하는 특징에 맞춰서 데이터를 파일에 출력하도록 변경한다.
-  @Override
-  public void write(int b) throws IOException {
-    if (cursor == buf.length) { // 버퍼가 다차면
-      super.write(buf); // 버퍼에 들어있는 데이터를 한 번에 출력한다.
-      cursor = 0; // 다시 커서를 초기화시킨다.
-    }
-
-    // 1바이트 출력하라고 하면 일단 버퍼에 저장할 것이다.
-    buf[cursor++] = (byte) b;
+  public void writeShort(int v) throws IOException {
+    this.write(v >> 8);
+    this.write(v);
   }
 
-  // 버퍼를 사용할 때는 특히 주의해야 한다.
-  // 버퍼가 꽉 찼을 때만 파일로 내보내기 때문에
-  // 버퍼에 잔여 데이터가 남아 있을 수 있다.
-  // 버퍼의 잔여 데이터를 강제로 출력하도록 상속 받은 다음 메서드를 재정의 한다.
-  @Override
-  public void flush() throws IOException {
-    if (cursor > 0) {
-      this.write(buf, 0, cursor);
-      cursor = 0;
-    }
+  public void writeInt(int v) throws IOException {
+    this.write(v >> 24);
+    this.write(v >> 16);
+    this.write(v >> 8);
+    this.write(v);
   }
 
-  // 항상 입출력 스트림을 사용한 다음에는 자원 해제를 위해 close()를 호출해야 한다.
-  // close()가 호출될 때 버퍼의 잔여 데이터를 내보내도록 상속 받은 메서드를 재정의 한다.
-  @Override
-  public void close() throws IOException {
-    this.flush();
-    super.close();
+  public void writeLong(long v) throws IOException {
+    this.write((int)(v >> 56));
+    this.write((int)(v >> 48));
+    this.write((int)(v >> 40));
+    this.write((int)(v >> 32));
+    this.write((int)(v >> 24));
+    this.write((int)(v >> 16));
+    this.write((int)(v >> 8));
+    this.write((int) v);
   }
 
+  public void writeChar(int v) throws IOException {
+    this.write(v >> 8);
+    this.write(v);
+  }
+
+  public void writeUTF(String str) throws IOException {
+    byte[] bytes = str.getBytes("UTF-8");
+    this.write(bytes.length >> 8);
+    this.write(bytes.length);
+    this.write(bytes);
+  }
 }
-
-

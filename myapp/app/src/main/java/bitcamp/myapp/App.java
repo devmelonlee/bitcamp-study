@@ -105,7 +105,7 @@ public class App {
     try {
       DataInputStream in = new DataInputStream("member.data");
 
-      int size = in.readInt();
+      int size = in.readShort();
 
       for (int i = 0; i < size; i++) {
         Member member = new Member();
@@ -158,7 +158,6 @@ public class App {
     try {
       DataOutputStream out = new DataOutputStream("member.data");
 
-      // 저장할 데이터의 개수를 먼저 출력한다.
       out.writeShort(memberList.size());
 
       for (Member member : memberList) {
@@ -189,18 +188,6 @@ public class App {
         out.writeUTF(board.getPassword());
         out.writeInt(board.getViewCount());
         out.writeLong(board.getCreatedDate());
-
-
-
-        long createdDate = board.getCreatedDate();
-        out.write((int) (createdDate >> 56));
-        out.write((int) (createdDate >> 48));
-        out.write((int) (createdDate >> 40));
-        out.write((int) (createdDate >> 32));
-        out.write((int) (createdDate >> 24));
-        out.write((int) (createdDate >> 16));
-        out.write((int) (createdDate >> 8));
-        out.write((int) createdDate);
       }
       out.close();
 
