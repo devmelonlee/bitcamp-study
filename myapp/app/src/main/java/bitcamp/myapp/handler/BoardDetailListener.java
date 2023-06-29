@@ -28,14 +28,3 @@ public class BoardDetailListener extends AbstractBoardListener {
     board.setViewCount(board.getViewCount() + 1);
   }
 }
-
-
-
-
-
-
-
-
-
-
-

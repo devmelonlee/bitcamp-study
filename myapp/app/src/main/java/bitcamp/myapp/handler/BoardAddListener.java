@@ -20,14 +20,3 @@ public class BoardAddListener extends AbstractBoardListener {
     this.list.add(board);
   }
 }
-
-
-
-
-
-
-
-
-
-
-

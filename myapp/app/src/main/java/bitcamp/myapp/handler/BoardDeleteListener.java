@@ -17,14 +17,3 @@ public class BoardDeleteListener extends AbstractBoardListener {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
