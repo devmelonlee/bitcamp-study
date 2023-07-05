@@ -2,7 +2,7 @@ package bitcamp.myapp.vo;
 
 import java.io.Serializable;
 
-public class Board implements Serializable, CsvObject {
+public class Board implements Serializable, CsvObject, AutoIncrement {
 
   private static final long serialVersionUID = 1L;
 
@@ -36,7 +36,18 @@ public class Board implements Serializable, CsvObject {
     board.setViewCount(Integer.parseInt(values[5]));
     board.setCreatedDate(Long.parseLong(values[6]));
 
+    if (board.boardNo <= board.getNo()) {
+
+    }
+
     return board;
+  }
+
+  @Override
+  public void updateKey(int no) {
+    if (Board.boardNo < no) {
+      Board.boardNo = no;
+    }
   }
 
   @Override
