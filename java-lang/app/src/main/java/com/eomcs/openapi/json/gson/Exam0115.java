@@ -1,0 +1,57 @@
+// 메서드 chaining call - before
+package com.eomcs.openapi.json.gson;
+
+import java.lang.reflect.Type;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
+
+public class Exam0115 {
+  public static void main(String[] args) {
+
+    // 1) 객체 준비
+    Member m = new Member();
+    m.setNo(100);
+    m.setName("홍길동");
+    m.setEmail("hong@test.com");
+    m.setPassword("1111");
+    m.setPhoto("hong.gif");
+    m.setTel("010-2222-1111");
+    m.setRegisteredDate(new Date(System.currentTimeMillis()));
+
+    // 2) JSON 처리 객체 준비
+    // Date 타입의 값을 내보내고 가져올 때 사용할 변환 도구를 준비
+    DateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
+    GsonBuilder builder = new GsonBuilder();
+    @Override
+    public JsonElement serialize(Date src, Type ty)
+    builder.registerTypeAdapter(Date.class, Date src, Type typeOfSrc, JsonSerializationContext context) -> {
+      return new JsonPrimitive(dateFormat.format(src));
+    }
+
+  Gson gson = builder.create();
+
+  // 3) 객체의 값을 JSON 문자열로 얻기
+  String jsonStr = gson.toJson(m);
+
+  System.out.println(jsonStr);
+}
+}
+
+// JSON 객체 형식 - { 객체 정보 }
+// => { "프로퍼티명" : 값, "프로퍼티명": 값, ...}
+//
+// 값:
+// - 문자열 => "값"
+// - 숫자 => 값
+// - 논리 => true, false
+//
+// 프로퍼티명은 반드시 문자열로 표현해야 한다.
+
+
