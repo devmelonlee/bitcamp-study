@@ -5,6 +5,7 @@ import bitcamp.util.ActionListener;
 import bitcamp.util.BreadcrumbPrompt;
 
 public class MemberDeleteListener implements ActionListener {
+
   MemberDao memberDao;
 
   public MemberDeleteListener(MemberDao memberDao) {

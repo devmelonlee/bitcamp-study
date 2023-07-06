@@ -2,9 +2,10 @@ package bitcamp.myapp.handler;
 
 import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.vo.Board;
+import bitcamp.util.ActionListener;
 import bitcamp.util.BreadcrumbPrompt;
 
-public class BoardAddListener implements BoardActionListener {
+public class BoardAddListener implements ActionListener {
 
   BoardDao boardDao;
 
@@ -23,3 +24,14 @@ public class BoardAddListener implements BoardActionListener {
     boardDao.insert(board);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
