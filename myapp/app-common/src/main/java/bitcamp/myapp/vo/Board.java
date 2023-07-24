@@ -16,6 +16,7 @@ public class Board implements Serializable {
   private String password;
   private int viewCount;
   private Timestamp createdDate;
+  private int category;
 
 
 
@@ -90,6 +91,14 @@ public class Board implements Serializable {
 
   public void setPassword(String password) {
     this.password = password;
+  }
+
+  public int getCategory() {
+    return category;
+  }
+
+  public void setCategory(int category) {
+    this.category = category;
   }
 
 

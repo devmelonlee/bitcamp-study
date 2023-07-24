@@ -1,5 +1,5 @@
 create table myapp_board(
-  board_no int not null ,
+  board_no int not null,
   title varchar(255) not null,
   content text null,
   writer varchar(20) not null,
@@ -11,7 +11,7 @@ create table myapp_board(
 alter table myapp_board
   add constraint primary key (board_no),
   modify column board_no int not null auto_increment;
-
+  
 create table myapp_member(
   member_no int not null,
   name varchar(20) not null,
@@ -19,14 +19,14 @@ create table myapp_member(
   password varchar(100) not null,
   gender char(1) not null
 );
-  
+
 alter table myapp_member
   add constraint primary key (member_no),
   modify column member_no int not null auto_increment;
   
+  
 -- 게시판에 카테고리 컬럼 추가
 alter table myapp_board
   add column category int not null;
-
--- update myapp_board set category=1 where board_no < 5;
--- update myapp_board set category=2 where board_no >= 5;
+  
+  
