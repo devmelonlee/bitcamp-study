@@ -1,6 +1,7 @@
 package bitcamp.myapp.vo;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 public class Board implements Serializable, CsvObject, AutoIncrement {
   private static final long serialVersionUID = 1L;
@@ -13,7 +14,8 @@ public class Board implements Serializable, CsvObject, AutoIncrement {
   private String writer;
   private String password;
   private int viewCount;
-  private long createdDate;
+  private Timestamp createdDate;
+  private int category;
 
   public Board() {}
 
@@ -21,23 +23,6 @@ public class Board implements Serializable, CsvObject, AutoIncrement {
     this.no = no;
   }
 
-  public static Board fromCsv(String csv) {
-    String[] values = csv.split(",");
-
-    Board board = new Board(Integer.parseInt(values[0]));
-    board.setTitle(values[1]);
-    board.setContent(values[2]);
-    board.setWriter(values[3]);
-    board.setPassword(values[4]);
-    board.setViewCount(Integer.parseInt(values[5]));
-    board.setCreatedDate(Long.parseLong(values[6]));
-
-    if (Board.boardNo <= board.getNo()) {
-      Board.boardNo = board.getNo() + 1;
-    }
-
-    return board;
-  }
 
   @Override
   public void updateKey() {
@@ -110,11 +95,11 @@ public class Board implements Serializable, CsvObject, AutoIncrement {
     this.viewCount = viewCount;
   }
 
-  public long getCreatedDate() {
+  public Timestamp getCreatedDate() {
     return createdDate;
   }
 
-  public void setCreatedDate(long createdDate) {
+  public void setCreatedDate(Timestamp createdDate) {
     this.createdDate = createdDate;
   }
 
@@ -125,6 +110,15 @@ public class Board implements Serializable, CsvObject, AutoIncrement {
   public void setPassword(String password) {
     this.password = password;
   }
+
+  public int getCategory() {
+    return category;
+  }
+
+  public void setCategory(int category) {
+    this.category = category;
+  }
+
 
 
 }

@@ -18,7 +18,7 @@ public class BoardListDao implements BoardDao {
   @Override
   public void insert(Board board) {
     board.setNo(Board.boardNo++);
-    board.setCreatedDate(System.currentTimeMillis());
+    // board.setCreatedDate(System.currentTimeMillis());
     this.list.add(board);
     JsonDataHelper.saveJson(filename, list);
   }
