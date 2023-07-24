@@ -381,3 +381,70 @@
   - 스레드의 라이프사이클 이해
   - Thread 클래스와 Runnable 인터페이스 사용법
 - 프로젝트 실습
+
+### 38일(7/14,금)
+
+- 자바 프로그래밍
+  - 스레드 프로그래밍(com.eomcs.concurrent.ex5 ~ ex6)
+- 멀티태스킹의 메커니즘 이해
+  - 임계영역(Critical Region, Critical Section): 세마포어(Semaphore)와 뮤텍스(Mutex)
+- 프로젝트 실습
+  - 44. 스레드 재사용하기 : 스레드풀(thread pool) 구현
+  
+### 39일(7/17,월)
+
+- 자바 프로그래밍
+  - 스레드 프로그래밍(com.eomcs.concurrent.ex7)
+    - 스레드풀 사용법
+  - JDBC 프로그래밍(com.eomcs.jdbc)
+    - MySQL 로컬 설치 및 설정
+    - 사용자 추가/삭제
+    - 데이터베이스 추가/삭제
+    - 사용자, 데이터베이스, 테이블 정보 조회
+    - DBMS와 DBMS 클라이언트와 관계 
+- 프로젝트 실습
+  - 45. 스레드 재사용하기 : 자바에서 제공하는 스레드풀(thread pool) 사용
+
+### 40일(7/18,화)
+
+- 자바 프로그래밍
+  - JDBC 프로그래밍(com.eomcs.jdbc)
+    - DBMS API와 ODBC API
+    - JDBC API와 JDBC 드라이버
+    - SQL - DDL 사용법
+
+### 41일(7/19,수)
+
+- 자바 프로그래밍
+  - JDBC 프로그래밍(com.eomcs.jdbc)
+    - SQL - DML 사용법
+    - SQL - DQL 사용법
+
+### 42일(7/20,목)
+
+- 자바 프로그래밍
+  - JDBC 프로그래밍(com.eomcs.jdbc)
+    - SQL - DQL 사용법: 조인, 서브쿼리, 그룹 
+
+### 43일(7/21,금)
+
+- 자바 프로그래밍
+  - 자바 코딩 문제집(001)
+    - 제네릭, 중첩클래스, Map.compute(), BiFunction 인터페이스 사용법
+  - JDBC 프로그래밍(com.eomcs.jdbc)
+    - JDBC API와 Driver 개념
+    - JDBC 드라이버 로딩 원리
+    - select/insert/update/delete 프로그래밍
+- 프로젝트 실습
+  - 46. DBMS 도입하기
+
+### 43일(7/21,금)
+
+- 자바 프로그래밍
+  - JDBC 프로그래밍(com.eomcs.jdbc)
+    - PreparedStatement 사용법
+- 프로젝트 실습
+  - 46. DBMS 도입하기(계속)
+  - 47. SQL 삽입 공격 차단하기
+  - 48. 외부키(Foreign Key) 사용하기
+  - 49. 로그인 적용하기
