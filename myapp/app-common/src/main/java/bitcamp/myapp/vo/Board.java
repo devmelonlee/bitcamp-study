@@ -7,8 +7,6 @@ import java.util.Objects;
 public class Board implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static int boardNo = 1;
-
   private int no;
   private String title;
   private String content;
@@ -17,8 +15,6 @@ public class Board implements Serializable {
   private int viewCount;
   private Timestamp createdDate;
   private int category;
-
-
 
   @Override
   public int hashCode() {
@@ -100,6 +96,4 @@ public class Board implements Serializable {
   public void setCategory(int category) {
     this.category = category;
   }
-
-
 }

@@ -28,6 +28,7 @@ public class MenuGroup extends Menu {
           this.printMenu(prompt);
           continue;
         }
+
         try {
           int menuNo = Integer.parseInt(input);
           if (menuNo < 0 || menuNo > childs.size()) {
@@ -41,7 +42,7 @@ public class MenuGroup extends Menu {
             menu.execute(prompt);
           }
         } catch (Exception e) {
-          prompt.printf("실행 오류 : %s\n", e.getMessage());
+          prompt.printf("실행 오류: %s\n", e.getMessage());
           prompt.end();
         }
       }
@@ -55,7 +56,6 @@ public class MenuGroup extends Menu {
       Menu menu = childs.get(i);
       prompt.printf("%d. %s\n", i + 1, menu.getTitle());
     }
-
     prompt.println("0. 이전/종료");
     prompt.end();
   }

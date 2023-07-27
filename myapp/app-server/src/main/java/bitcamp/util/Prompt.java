@@ -46,7 +46,7 @@ public class Prompt {
     buf.append("\n");
   }
 
-  public void printf(String format, Object... args) throws IOException {
+  public void printf(String format, Object... args) {
     buf.append(String.format(format, args));
   }
 
@@ -60,3 +60,5 @@ public class Prompt {
     buf.setLength(0);
   }
 }
+
+

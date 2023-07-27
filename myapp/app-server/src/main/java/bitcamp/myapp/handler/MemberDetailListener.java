@@ -16,21 +16,17 @@ public class MemberDetailListener implements ActionListener {
 
   @Override
   public void service(BreadcrumbPrompt prompt) throws IOException {
-    try {
-      int memberNo = prompt.inputInt("번호? ");
+    int memberNo = prompt.inputInt("번호? ");
 
-      Member m = memberDao.findBy(memberNo);
-      if (m == null) {
-        prompt.println("해당 번호의 회원이 없습니다!");
-        return;
-      }
-
-      prompt.printf("이름: %s\n", m.getName());
-      prompt.printf("이메일: %s\n", m.getEmail());
-      prompt.printf("성별: %s\n", m.getGender() == 'M' ? "남성" : "여성");
-      prompt.printf("가입일: %s\n", m.getCreatedDate());
-    } catch (Exception e) {
-      throw new RuntimeException(e);
+    Member m = memberDao.findBy(memberNo);
+    if (m == null) {
+      prompt.println("해당 번호의 회원이 없습니다!");
+      return;
     }
+
+    prompt.printf("이름: %s\n", m.getName());
+    prompt.printf("이메일: %s\n", m.getEmail());
+    prompt.printf("성별: %s\n", m.getGender() == 'M' ? "남성" : "여성");
+    prompt.printf("가입일: %s\n", m.getCreatedDate());
   }
 }

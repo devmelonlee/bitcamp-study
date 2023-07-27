@@ -7,8 +7,6 @@ import java.util.Objects;
 public class Member implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static int userId = 1;
-
   public static final char MALE = 'M';
   public static final char FEMALE = 'W';
 
@@ -18,8 +16,6 @@ public class Member implements Serializable {
   private String password;
   private char gender;
   private Date createdDate;
-
-
 
   @Override
   public int hashCode() {
@@ -85,7 +81,4 @@ public class Member implements Serializable {
   public void setCreatedDate(Date createdDate) {
     this.createdDate = createdDate;
   }
-
-
-
 }
