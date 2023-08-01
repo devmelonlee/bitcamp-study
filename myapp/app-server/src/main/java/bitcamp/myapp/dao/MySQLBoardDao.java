@@ -6,7 +6,9 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import bitcamp.myapp.vo.Board;
+import bitcamp.util.Component;
 
+@Component
 public class MySQLBoardDao implements BoardDao {
 
   SqlSessionFactory sqlSessionFactory;
@@ -26,6 +28,7 @@ public class MySQLBoardDao implements BoardDao {
     SqlSession sqlSession = sqlSessionFactory.openSession(true);
     return sqlSession.selectList("bitcamp.myapp.dao.BoardDao.findAll", category);
   }
+
 
   @Override
   public Board findBy(int category, int no) {
