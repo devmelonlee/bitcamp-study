@@ -3,12 +3,13 @@ package bitcamp.myapp.handler;
 import java.util.List;
 import bitcamp.myapp.dao.MemberDao;
 import bitcamp.myapp.vo.Member;
-import bitcamp.util.ActionListener;
-import bitcamp.util.BreadcrumbPrompt;
 import bitcamp.util.Component;
+import bitcamp.util.HttpServletRequest;
+import bitcamp.util.HttpServletResponse;
+import bitcamp.util.Servlet;
 
 @Component("/member/list")
-public class MemberListListener implements ActionListener {
+public class MemberListListener implements Servlet {
 
   MemberDao memberDao;
 
@@ -17,7 +18,7 @@ public class MemberListListener implements ActionListener {
   }
 
   @Override
-  public void service(BreadcrumbPrompt prompt) {
+  public void service(HttpServletRequest request, HttpServletResponse response) throws Exception {
     prompt.println("---------------------------------------");
     prompt.println("번호, 이름, 이메일");
     prompt.println("---------------------------------------");

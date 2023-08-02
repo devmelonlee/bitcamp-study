@@ -1,14 +1,14 @@
 package bitcamp.myapp.handler;
 
-import java.io.IOException;
 import bitcamp.myapp.dao.MemberDao;
 import bitcamp.myapp.vo.Member;
-import bitcamp.util.ActionListener;
-import bitcamp.util.BreadcrumbPrompt;
 import bitcamp.util.Component;
+import bitcamp.util.HttpServletRequest;
+import bitcamp.util.HttpServletResponse;
+import bitcamp.util.Servlet;
 
 @Component("/member/detail")
-public class MemberDetailListener implements ActionListener {
+public class MemberDetailListener implements Servlet {
 
   MemberDao memberDao;
 
@@ -17,7 +17,7 @@ public class MemberDetailListener implements ActionListener {
   }
 
   @Override
-  public void service(BreadcrumbPrompt prompt) throws IOException {
+  public void service(HttpServletRequest request, HttpServletResponse response) throws Exception {
     int memberNo = prompt.inputInt("번호? ");
 
     Member m = memberDao.findBy(memberNo);

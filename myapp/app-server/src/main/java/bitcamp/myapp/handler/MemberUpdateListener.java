@@ -1,14 +1,15 @@
 package bitcamp.myapp.handler;
 
-import java.io.IOException;
 import org.apache.ibatis.session.SqlSessionFactory;
 import bitcamp.myapp.dao.MemberDao;
 import bitcamp.myapp.vo.Member;
-import bitcamp.util.BreadcrumbPrompt;
 import bitcamp.util.Component;
+import bitcamp.util.HttpServletRequest;
+import bitcamp.util.HttpServletResponse;
+import bitcamp.util.Servlet;
 
 @Component("/member/update")
-public class MemberUpdateListener implements MemberActionListener {
+public class MemberUpdateListener implements Servlet {
 
   MemberDao memberDao;
   SqlSessionFactory sqlSessionFactory;
@@ -19,7 +20,7 @@ public class MemberUpdateListener implements MemberActionListener {
   }
 
   @Override
-  public void service(BreadcrumbPrompt prompt) throws IOException {
+  public void service(HttpServletRequest request, HttpServletResponse response) throws Exception {
     int memberNo = prompt.inputInt("번호? ");
 
     Member m = memberDao.findBy(memberNo);
