@@ -40,16 +40,24 @@ public class BoardListServlet extends AbstractServlet {
     out.println("  <tr><th>번호</th> <th>제목</th> <th>작성자</th> <th>조회수</th> <th>등록일</th></tr>");
     out.println("</thead>");
 
-    List<Board> list = initServlet.boardDao.findAll(category);
+    List<Board> list = InitServlet.boardDao.findAll(category);
 
     out.println("<tbody>");
     for (Board board : list) {
-      out.printf(
-          "<tr>" + " <td>%d</td>" + " <td><a href='/board/detail?category=%d&no=%d'>%s</a></td>"
-              + " <td>%s</td>" + " <td>%d</td>" + " <td>%s</td></tr>\n",
-          board.getNo(), board.getCategory(), board.getNo(),
-          (board.getTitle().length() > 0 ? board.getTitle() : "제목없음"), board.getWriter().getName(),
-          board.getViewCount(), dateFormatter.format(board.getCreatedDate()));
+      out.printf("<tr>"
+          + " <td>%d</td>"
+          + " <td><a href='/board/detail?category=%d&no=%d'>%s</a></td>"
+          + " <td>%s</td>"
+          + " <td>%d</td>"
+          + " <td>%s</td></tr>\n",
+          board.getNo(),
+          board.getCategory(),
+          board.getNo(),
+          (board.getTitle().length() > 0 ? board.getTitle() : "제목없음"),
+          board.getWriter().getName(),
+          board.getViewCount(),
+          dateFormatter.format(board.getCreatedDate())
+          );
     }
     out.println("</tbody>");
     out.println("</table>");
@@ -59,5 +67,14 @@ public class BoardListServlet extends AbstractServlet {
   }
 
 }
+
+
+
+
+
+
+
+
+
 
 

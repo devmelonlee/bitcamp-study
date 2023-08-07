@@ -5,6 +5,7 @@ import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 
 public abstract class AbstractServlet implements Servlet {
+
   ServletConfig config;
 
   @Override
@@ -14,16 +15,15 @@ public abstract class AbstractServlet implements Servlet {
 
   @Override
   public void destroy() {
-
   }
 
   @Override
   public String getServletInfo() {
-    return null;
+    return "";
   }
 
   @Override
   public ServletConfig getServletConfig() {
-    return null;
+    return this.config;
   }
 }

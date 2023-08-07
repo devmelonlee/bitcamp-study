@@ -30,3 +30,6 @@ alter table myapp_board
   add column category int not null;
   
   
+  
+  
+  

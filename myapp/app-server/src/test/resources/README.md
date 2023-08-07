@@ -1,1 +1,1 @@
-# test/resouces
+# src/test/resources

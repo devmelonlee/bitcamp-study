@@ -17,7 +17,7 @@ import bitcamp.util.AbstractServlet;
 import bitcamp.util.SqlSessionFactoryProxy;
 
 @WebServlet("/init")
-public class initServlet extends AbstractServlet {
+public class InitServlet extends AbstractServlet {
 
   public static SqlSessionFactory sqlSessionFactory;
   public static BoardDao boardDao;
@@ -27,11 +27,13 @@ public class initServlet extends AbstractServlet {
   public void service(ServletRequest request, ServletResponse response)
       throws ServletException, IOException {
 
-    sqlSessionFactory = new SqlSessionFactoryProxy(new SqlSessionFactoryBuilder()
-        .build(Resources.getResourceAsStream("bitcamp/myapp/config/mybatis-config.xml")));
+    sqlSessionFactory = new SqlSessionFactoryProxy(
+        new SqlSessionFactoryBuilder().build(
+            Resources.getResourceAsStream("bitcamp/myapp/config/mybatis-config.xml")));
 
     boardDao = new MySQLBoardDao(sqlSessionFactory);
     memberDao = new MySQLMemberDao(sqlSessionFactory);
+
 
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
@@ -43,7 +45,7 @@ public class initServlet extends AbstractServlet {
     out.println("</head>");
     out.println("<body>");
     out.println("<h1>애플리케이션 준비</h1>");
-    out.println("<p>애플리케이션 준비 완료</p>");
+    out.println("<p>애플리케이션을 실행할 준비를 완료했습니다!</p>");
     out.println("</body>");
     out.println("</html>");
   }

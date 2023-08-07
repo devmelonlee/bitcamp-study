@@ -33,4 +33,5 @@ public class MemberDeleteServlet implements Servlet {
       throw new RuntimeException(e);
     }
   }
+
 }
