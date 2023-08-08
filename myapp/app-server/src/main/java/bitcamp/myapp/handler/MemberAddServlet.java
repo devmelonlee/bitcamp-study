@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import bitcamp.myapp.vo.Member;
 
-@WebServlet("/auth/login")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/member/add")
+public class MemberAddServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
 
@@ -19,16 +19,10 @@ public class LoginServlet extends HttpServlet {
       throws ServletException, IOException {
 
     Member m = new Member();
+    m.setName(request.getParameter("name"));
     m.setEmail(request.getParameter("email"));
     m.setPassword(request.getParameter("password"));
-
-    Member loginUser = InitServlet.memberDao.findByEmailAndPassword(m);
-    if (loginUser != null) {
-      // 로그인 정보를 다른 요청에서도 사용할 있도록 세션 보관소에 담아 둔다.
-      request.getSession().setAttribute("loginUser", loginUser);
-      response.sendRedirect("/");
-      return;
-    }
+    m.setGender(request.getParameter("gender").charAt(0));
 
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
@@ -36,14 +30,24 @@ public class LoginServlet extends HttpServlet {
     out.println("<html>");
     out.println("<head>");
     out.println("<meta charset='UTF-8'>");
-    out.println("<meta http-equiv='refresh' content='1;url=/auth/form.html'>");
-    out.println("<title>로그인</title>");
+    out.println("<meta http-equiv='refresh' content='1;url=/member/list'>");
+    out.println("<title>회원</title>");
     out.println("</head>");
     out.println("<body>");
-    out.println("<h1>로그인</h1>");
-    out.println("<p>회원 정보가 일치하지 않습니다.</p>");
+    out.println("<h1>회원 등록</h1>");
+
+    try {
+      InitServlet.memberDao.insert(m);
+      InitServlet.sqlSessionFactory.openSession(false).commit();
+      out.println("<p>등록 성공입니다!</p>");
+
+    } catch (Exception e) {
+      InitServlet.sqlSessionFactory.openSession(false).rollback();
+      out.println("<p>등록 실패입니다!</p>");
+      e.printStackTrace();
+    }
+
     out.println("</body>");
     out.println("</html>");
-
   }
 }
