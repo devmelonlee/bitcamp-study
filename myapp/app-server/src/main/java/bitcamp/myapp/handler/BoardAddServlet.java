@@ -24,7 +24,7 @@ public class BoardAddServlet extends HttpServlet {
       response.sendRedirect("/auth/form.html");
       return;
     }
-
+    request.setCharacterEncoding("UTF-8");// 최초의 get을 없애기 전에 해야한다.
     int category = Integer.parseInt(request.getParameter("category"));
 
     Board board = new Board();
