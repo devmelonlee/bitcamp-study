@@ -6,8 +6,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.vo.Board;
 import bitcamp.myapp.vo.Member;
+import bitcamp.util.NcpObjectStorageService;
+import org.apache.ibatis.session.SqlSessionFactory;
 
 @WebServlet("/board/delete")
 public class BoardDeleteServlet extends HttpServlet {
@@ -24,6 +28,14 @@ public class BoardDeleteServlet extends HttpServlet {
       return;
     }
 
+    BoardDao boardDao = (BoardDao) this.getServletContext().getAttribute("boardDao");
+    SqlSessionFactory sqlSessionFactory = (SqlSessionFactory) this.getServletContext().getAttribute(
+            "sqlSessionFactory");
+    NcpObjectStorageService ncpObjectStorageService =
+            (NcpObjectStorageService) this.getServletContext().getAttribute(
+                    "ncpObjectStorageService");
+
+
     int category = Integer.parseInt(request.getParameter("category"));
 
     Board b = new Board();
@@ -32,15 +44,15 @@ public class BoardDeleteServlet extends HttpServlet {
     b.setCategory(category);
 
     try {
-      if (InitServlet.boardDao.delete(b) == 0) {
+      if (boardDao.delete(b) == 0) {
         throw new Exception("해당 번호의 게시글이 없거나 삭제 권한이 없습니다.");
       } else {
         response.sendRedirect("/board/list?category=" + category);
       }
-      InitServlet.sqlSessionFactory.openSession(false).commit();
+      sqlSessionFactory.openSession(false).commit();
 
     } catch (Exception e) {
-      InitServlet.sqlSessionFactory.openSession(false).rollback();
+      sqlSessionFactory.openSession(false).rollback();
 
       request.setAttribute("error", e);
       request.setAttribute("message", e.getMessage());

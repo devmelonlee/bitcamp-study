@@ -16,7 +16,7 @@ public class Servlet01 extends HttpServlet {
 
   @Override
   protected void service(HttpServletRequest request, HttpServletResponse response)
-      throws ServletException, IOException {
+  throws ServletException, IOException {
 
     // 테스트 방법:
     // => http://localhost:8080/java-web/ex07/s1?a=100&b=200&op=+

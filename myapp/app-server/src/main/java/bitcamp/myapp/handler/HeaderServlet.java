@@ -22,23 +22,12 @@ public class HeaderServlet extends HttpServlet {
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
     out.println("<div style='height:60px'>");
-    out.println("<img src='https://www.ncloud.com/public/img/logo-m.png' style='height:40px>");
+    out.println("<img src='https://www.ncloud.com/public/img/logo-m.png' style='height:40px'>");
     out.println("<a href='/member/list'> 회원 </a>");
     out.println("<a href='/board/list?category=1'> 게시글 </a>");
     out.println("<a href='/board/list?category=2'> 독서록 </a>");
-    out.println("<a href='/auth/form.html'> 로그인 </a>");
 
-    Member loginUser = (Member) request.getSession().getAttribute("loginUser");
-    if (loginUser == null) {
-      out.println("<a href='/auth/form.html'>로그인</a>");
-    } else {
-      out.printf("%s %s <a href='/auth/logout'>로그아웃</a>\n",
-              (loginUser.getPhoto() == null ?
-                      "<img style='height:40px' src='/images/avatar.png'>" :
-                      String.format(" <img src='http://ppgzynbiloni19010741.cdn.ntruss.com/member/%s?type=f&w=30&h=40&faceopt=true&ttype=jpg'>",
-                              loginUser.getPhoto())),
-              loginUser.getName());
-    }
+
 
 
     out.println("</div>");
