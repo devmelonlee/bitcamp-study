@@ -1,11 +1,10 @@
 package bitcamp.myapp.listener;
 
-// 웹 애플리케이션에 필요한 설정이나 객체를 준비한다.
-// 언제? 웹 애플리케이션이 시작될 때!
-
+import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.dao.MemberDao;
 import bitcamp.myapp.dao.MySQLBoardDao;
 import bitcamp.myapp.dao.MySQLMemberDao;
+import bitcamp.myapp.vo.Board;
 import bitcamp.util.NcpConfig;
 import bitcamp.util.NcpObjectStorageService;
 import bitcamp.util.SqlSessionFactoryProxy;
@@ -18,10 +17,9 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
-
-// 언제? 웹 애플리케이션 시작될 때!
-
-
+// 웹애플리케이션 실행에 필요한 설정이나 객체를 준비한다.
+// 언제? 웹애플리케이션 시작될 때!
+//
 @WebListener
 public class ContextLoaderListener implements ServletContextListener {
 
@@ -37,12 +35,12 @@ public class ContextLoaderListener implements ServletContextListener {
               new SqlSessionFactoryBuilder().build(
                       Resources.getResourceAsStream(ctx.getInitParameter("mybatis-config"))));
 
-      MySQLBoardDao boardDao = new MySQLBoardDao(sqlSessionFactory);
-      MySQLMemberDao memberDao = new MySQLMemberDao(sqlSessionFactory);
+      BoardDao boardDao = new MySQLBoardDao(sqlSessionFactory);
+      MemberDao memberDao = new MySQLMemberDao(sqlSessionFactory);
       NcpObjectStorageService ncpObjectStorageService = new NcpObjectStorageService(new NcpConfig());
 
       // 준비한 객체를 꺼내 쓸 수 있도록 보관소에 저장한다.
-      ctx.setAttribute("sqlSesionFactory", sqlSessionFactory);
+      ctx.setAttribute("sqlSessionFactory", sqlSessionFactory);
       ctx.setAttribute("boardDao", boardDao);
       ctx.setAttribute("memberDao", memberDao);
       ctx.setAttribute("ncpObjectStorageService", ncpObjectStorageService);

@@ -3,6 +3,7 @@ package bitcamp.myapp.listener;
 import javax.servlet.ServletRequestEvent;
 import javax.servlet.ServletRequestListener;
 import javax.servlet.annotation.WebListener;
+
 import bitcamp.util.SqlSessionFactoryProxy;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -22,7 +23,8 @@ public class MyServletRequestListener implements ServletRequestListener {
     if (sqlSessionFactoryProxy != null) {
       sqlSessionFactoryProxy.clean();
     } else {
-      System.out.println("왜또 지움???????????????????????");
+      System.out.println("sqlSessionFactoryProxy");
     }
+
   }
 }
