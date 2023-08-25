@@ -44,6 +44,7 @@ public class ContextLoaderListener implements ServletContextListener {
       ctx.setAttribute("boardDao", boardDao);
       ctx.setAttribute("memberDao", memberDao);
       ctx.setAttribute("ncpObjectStorageService", ncpObjectStorageService);
+      ctx.setAttribute("simpledateFormat:", new Simpo);
 
       System.out.println("ContextLoaderListener.contextInitialized() - 공통 객체 준비 완료!");
 
