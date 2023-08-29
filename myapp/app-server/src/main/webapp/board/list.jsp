@@ -8,6 +8,9 @@
 <%@ page import="java.util.List"%>
 <%@ page import="bitcamp.myapp.vo.Board"%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <%!
   SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
 %>
@@ -33,15 +36,11 @@
 <a href='/board/form.jsp?category=${param.category}'>새 글</a>
 </div>
 <table border='1'>
+
 <thead>
   <tr><th>번호</th> <th>제목</th> <th>작성자</th> <th>조회수</th> <th>등록일</th></tr>
 </thead>
 
-<jsp:useBean id="boardDao" type="bitcamp.myapp.dao.BoardDao" scope="application"/>
-
-<%
-  List<Board> list = boardDao.findAll(category);
-%>
 <tbody>
 <%
   for (Board board : list) {
@@ -55,7 +54,7 @@
       </td>
       <td>${board.writer.name}</td>
       <td>${board.viewCount}</td>
-      <td>${simpleDateFormatter.format(board.createdDate)}</td>
+      <td><fmt:formatDate value="2020-04-14" pattern="yyyy-MM-dd" var="d1"/>board.createdDate)}</td>
     </tr>
 <%
   }

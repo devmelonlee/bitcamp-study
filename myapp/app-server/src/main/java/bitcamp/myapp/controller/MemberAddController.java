@@ -1,7 +1,6 @@
-package bitcamp.myapp.handler;
+package bitcamp.myapp.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.dao.MemberDao;
 import bitcamp.myapp.vo.Member;
 import bitcamp.util.NcpObjectStorageService;
@@ -18,7 +16,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 @WebServlet("/member/add")
 @MultipartConfig(maxFileSize = 1024 * 1024 * 10)
-public class MemberAddServlet extends HttpServlet {
+public class MemberAddController extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
 
@@ -27,11 +25,8 @@ public class MemberAddServlet extends HttpServlet {
       throws ServletException, IOException {
 
     MemberDao memberDao = (MemberDao) this.getServletContext().getAttribute("memberDao");
-    SqlSessionFactory sqlSessionFactory = (SqlSessionFactory) this.getServletContext().getAttribute(
-            "sqlSessionFactory");
-    NcpObjectStorageService ncpObjectStorageService =
-            (NcpObjectStorageService) this.getServletContext().getAttribute(
-                    "ncpObjectStorageService");
+    SqlSessionFactory sqlSessionFactory = (SqlSessionFactory) this.getServletContext().getAttribute("sqlSessionFactory");
+    NcpObjectStorageService ncpObjectStorageService = (NcpObjectStorageService) this.getServletContext().getAttribute("ncpObjectStorageService");
 
     Member m = new Member();
     m.setName(request.getParameter("name"));
@@ -41,8 +36,8 @@ public class MemberAddServlet extends HttpServlet {
 
     Part photoPart = request.getPart("photo");
     if (photoPart.getSize() > 0) {
-      String uploadFileUrl = ncpObjectStorageService.uploadFile("bitcamp-nc7-bucket-08",
-          "member/", photoPart);
+      String uploadFileUrl = ncpObjectStorageService.uploadFile(
+          "bitcamp-nc7-bucket-08", "member/", photoPart);
       m.setPhoto(uploadFileUrl);
     }
 

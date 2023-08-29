@@ -9,6 +9,7 @@
 
 <jsp:useBean id="boardDao" type="bitcamp.myapp.dao.BoardDao" scope="application"/>
 <jsp:useBean id="sqlSessionFactory" type="org.apache.ibatis.session.SqlSessionFactory" scope="application"/>
+<c:set var="board" value="${boardDao.findBy(param,category,param,no)}"
 <%
     request.setAttribute("refresh", "2;url=list.jsp?category=" + request.getParameter("category"));
     Board board = boardDao.findBy(
@@ -27,6 +28,8 @@
 <jsp:include page="../header.jsp"/>
 
 <h1>게시글</h1>
+
+<c: if test="${empty board}">
 
 <%
     if (board == null) {
@@ -52,6 +55,8 @@
 <%
       for (AttachedFile file : board.getAttachedFiles()) {
 %>
+
+
 <a href='https://kr.object.ncloudstorage.com/bitcamp-nc7-bucket-08/board/${file.filePath}'>${file.filePath}</a>
 [<a href='/board/fileDelete.jsp?category=${category}&no=${file.no}'>삭제</a>]
 <br>
@@ -69,17 +74,9 @@
 <a href='/board/list.jsp?category=${board.category()}'>목록</a>
 </div>
 </form>
-<%
-      try {
-        board.setViewCount(board.getViewCount() + 1);
-        boardDao.updateCount(board);
-        sqlSessionFactory.openSession(false).commit();
-
-      } catch (Exception e) {
-        sqlSessionFactory.openSession(false).rollback();
-      }
-    }
-%>
+<c: set target="${pageScope.board}" property"viewCount" value="${board.viewCount + 1}"/>
+<c: set var="updateCount" value="${boardDao.updateCount(board)}"/>
+<% sqlSessionFactory.opneSession(false).commit();%>
 
 <jsp:include page="../footer.jsp"/>
 
