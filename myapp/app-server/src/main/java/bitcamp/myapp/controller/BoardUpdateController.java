@@ -4,14 +4,16 @@ import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.vo.AttachedFile;
 import bitcamp.myapp.vo.Board;
 import bitcamp.myapp.vo.Member;
-import bitcamp.util.NcpObjectStorageService;
+import bitcamp.myapp.service.NcpObjectStorageService;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.util.ArrayList;
 
+@Component("/board/update")
 public class BoardUpdateController implements PageController {
 
   BoardDao boardDao;

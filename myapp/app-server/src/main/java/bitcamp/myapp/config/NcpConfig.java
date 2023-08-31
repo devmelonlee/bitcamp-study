@@ -1,5 +1,8 @@
-package bitcamp.util;
+package bitcamp.myapp.config;
 
+import org.springframework.stereotype.Component;
+
+//@Component
 public class NcpConfig {
   private String endPoint = "https://kr.object.ncloudstorage.com";// ncp.endPoint 프로퍼티를 받는 필드
   private String regionName = "kr-standard";
@@ -7,8 +10,7 @@ public class NcpConfig {
   private String secretKey = System.getProperty("secretKey");
 
   public NcpConfig() {
-    System.out.println(System.getProperty("accessKey"));
-    System.out.println(System.getProperty("secretKey"));
+    System.out.println("NcpConfig() 호출됨!");
   }
 
   public String getEndPoint() {
