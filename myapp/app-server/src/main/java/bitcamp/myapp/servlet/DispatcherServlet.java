@@ -31,9 +31,6 @@ public class DispatcherServlet extends HttpServlet {
   public void init() throws ServletException {
     System.out.println("DispatcherServlet.init() 호출됨!");
     iocContainer = new AnnotationConfigApplicationContext(AppConfig.class, NcpConfig.class);
-
-    SqlSessionFactory sqlSessionFactory = iocContainer.getBean(SqlSessionFactory.class);
-    this.getServletContext().setAttribute("sqlSessionFactory", sqlSessionFactory);
   }
 
   @Override
@@ -45,7 +42,6 @@ public class DispatcherServlet extends HttpServlet {
 
     // 클라이언트가 요청한 페이지 컨트롤러를 찾는다.
     PageController pageController = (PageController) iocContainer.getBean(pageControllerPath);
-
 
     // 페이지 컨트롤러를 실행한다.
     try {
