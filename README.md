@@ -669,3 +669,11 @@
   - Spring IoC 컨테이너 사용법(계속)
 - 프로젝트 실습
   - 69. Mybatis + Spring IoC 컨테이너 = DAO 구현체 자동 생성
+
+### 72일(9/4,월)
+
+- 프로젝트 실습
+  - 70. Controller에서 비즈니스 로직 분리하기: 서비스 컴포넌트 도입
+  - 71. 트랜잭션 제어 코드를 캡슐화하기: Spring의 TransactionTemplate 모방 구현
+  - 72. Spring의 TransactionTemplate 으로 교체하기
+  - 73. 애노테이션을 사용하여 트랜잭션 제어하기
