@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset='UTF-8'>
+<meta charset='UTF-8'>3
 <title>게시글</title>
 </head>
 <body>
