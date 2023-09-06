@@ -3,43 +3,26 @@ package bitcamp.myapp.service;
 import bitcamp.myapp.dao.MemberDao;
 import bitcamp.myapp.vo.Member;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.TransactionDefinition;
-import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.support.DefaultTransactionDefinition;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
-public class DefaultMemberService implements MemberService{
+public class DefaultMemberService implements MemberService {
 
-  MemberDao memberDao;
-  PlatformTransactionManager txManager;
-
-  public DefaultMemberService(MemberDao memberDao, PlatformTransactionManager txManager) {
-    this.memberDao = memberDao;
-    this.txManager = txManager;
+  {
+    System.out.println("DefaultMemberService executed");
   }
+  MemberDao memberDao;
 
   public DefaultMemberService(MemberDao memberDao) {
     this.memberDao = memberDao;
   }
 
+  @Transactional
   @Override
   public int add(Member member) throws Exception {
-    DefaultTransactionDefinition def = new DefaultTransactionDefinition();
-    def.setName("tx1");
-    def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
-    TransactionStatus status = txManager.getTransaction(def);
-
-    try {
-      int count = memberDao.insert(member);
-      txManager.commit(status);
-      return count;
-    } catch (Exception e) {
-      txManager.rollback(status);
-      throw e;
-    }
+    return memberDao.insert(member);
   }
 
   @Override
@@ -57,11 +40,13 @@ public class DefaultMemberService implements MemberService{
     return memberDao.findByEmailAndPassword(email, password);
   }
 
+  @Transactional
   @Override
   public int update(Member member) throws Exception {
     return memberDao.update(member);
   }
 
+  @Transactional
   @Override
   public int delete(int memberNo) throws Exception {
     return memberDao.delete(memberNo);

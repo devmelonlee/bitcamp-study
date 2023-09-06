@@ -1,8 +1,8 @@
 package bitcamp.myapp.config;
 
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
 
-//@Component
+@Configuration
 public class NcpConfig {
   private String endPoint = "https://kr.object.ncloudstorage.com";// ncp.endPoint 프로퍼티를 받는 필드
   private String regionName = "kr-standard";
