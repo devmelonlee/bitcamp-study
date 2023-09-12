@@ -16,7 +16,7 @@
 <body>
 
 <jsp:include page="../header.jsp"/>
-
+1
 <h1>게시글</h1>
 
 <c:if test="${empty board}">

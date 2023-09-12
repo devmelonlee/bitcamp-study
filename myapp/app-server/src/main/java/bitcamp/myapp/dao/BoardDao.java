@@ -3,8 +3,9 @@ package bitcamp.myapp.dao;
 import java.util.List;
 import bitcamp.myapp.vo.AttachedFile;
 import bitcamp.myapp.vo.Board;
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface BoardDao {
   int insert(Board board);
   List<Board> findAll(int category);
